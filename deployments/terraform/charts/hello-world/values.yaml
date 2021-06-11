@@ -5,7 +5,8 @@
 replicaCount: 5
 
 image:
-  repository: docker.fuchicorp.com/hello-world-stage:c6e96b5
+  repository: ${deployment_image}
+  tag: stable
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -17,18 +18,20 @@ service:
   port: 80
 
 ingress:
-  enabled: true 
+  enabled: true
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    # kubernetes.io/tls-acme: "true"
   hosts:
-  - host: hello.fuchicorp.com
-    paths:
-    - /
+    - host: ${deployment_endpoint}
+      paths:
+      - '/'
+
   tls:
-  - secretName: hello-world-tls
+  - secretName: chart-example-tls
     hosts:
-    - hello.fuchicorp.com
+      - ${deployment_endpoint}
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

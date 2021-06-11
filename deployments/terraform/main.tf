@@ -9,34 +9,36 @@ module "helm_deploy" {
   }          
 }
 
-variable "deployment_environment" {
-    default = "qa"
-    description = "- (Optional) The namespace to deploy the helm chart."
-}
-
 variable "deployment_name" {
     default = "hello-world"
     description = "- (Optional) The name of the deployment."
 }
 
-variable "deployment_image" {
-    default = "docker.aziza.link/hello-world-stage:e8d4cff"
-    description = "- (Optional) The docker image of the deployment."
+variable "deployment_environment" {
+    default = "prod"
+    description = "- (Optional) The namespace to deploy the helm chart."
 }
+
 
 variable "deployment_endpoint" {
     type = "map"
-
     default = {
         dev     = "dev.hello"
         qa      = "qa.hello"
         prod    = "hello"
         stage   = "stage.hello"
     }
-
     description = "- (Optional) The endpooint of the deployment."
+}
+
+variable "deployment_image" {
+    default = "docker.aziza.link/hello-world-stage:e6f222a"
+    description = "- (Optional) The docker image of the deployment."
 }
 
 variable "google_domain_name" {
   default = "aziza.link"
 }
+
+
+
