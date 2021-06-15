@@ -1,5 +1,5 @@
-google_project_id       = "neat-bricolage-316221"
-google_bucket_name      = "aziza-bucket2"
+google_project_id       = "my-crazy-project-316619"
+google_bucket_name      = "my-full-bucket"
 deployment_environment  = "dev"
 deployment_name         = "hello-world"
 credentials             = "fuchicorp-service-account.json"
