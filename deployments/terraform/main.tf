@@ -32,7 +32,7 @@ variable "deployment_endpoint" {
 }
 
 variable "deployment_image" {
-    default = "docker.aziza.link/hello-world-stage:e6f222a"
+    default = "docker.aziza.link/hello-world-stage:50cd82b"
     description = "- (Optional) The docker image of the deployment."
 }
 
